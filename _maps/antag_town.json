@@ -1,0 +1,12 @@
+{
+	"map_name": "Antag town",
+	"map_link": "AntagTown",
+	"map_path": "map_files/AntagTown",
+	"map_file": "AntagTown.dmm",
+	"shuttles": {
+		"cargo": "cargo_box",
+		"ferry": "ferry_fancy",
+		"whiteship": "whiteship_box",
+		"emergency": "emergency_box"
+	}
+}

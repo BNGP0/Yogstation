@@ -12,6 +12,7 @@
 	var/choose_target_message = "Choose a target."
 	/// Radius around the caster that living targets are picked to choose from
 	var/target_radius = 7
+	var/include_user = FALSE
 
 /datum/action/cooldown/spell/list_target/PreActivate(atom/caster)
 	var/list/list_targets = get_list_targets(caster, target_radius)
@@ -37,5 +38,7 @@
 			continue
 
 		things += nearby_living
+		if (include_user)
+			things += owner
 
 	return things

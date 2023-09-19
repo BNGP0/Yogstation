@@ -1,0 +1,1 @@
+#define FORCE_MAP "_maps/antag_town.json"

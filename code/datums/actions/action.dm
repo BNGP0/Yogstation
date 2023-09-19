@@ -99,7 +99,7 @@
 	if(check_flags & AB_CHECK_IMMOBILE)
 		RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_IMMOBILIZED), PROC_REF(update_status_on_signal))
 	if(check_flags & AB_CHECK_HANDS_BLOCKED)
-		RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_HANDS_BLOCKED), PROC_REF(update_status_on_signal)) 
+		RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_HANDS_BLOCKED), PROC_REF(update_status_on_signal))
 	if(check_flags & AB_CHECK_LYING)
 		RegisterSignal(owner, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(update_status_on_signal))
 
@@ -169,10 +169,12 @@
 			if (feedback)
 				owner.balloon_alert(owner, "must stand up!")
 			return FALSE
+//
 	if((check_flags & AB_CHECK_CONSCIOUS) && owner.stat != CONSCIOUS)
 		if (feedback)
 			owner.balloon_alert(owner, "unconscious!")
 		return FALSE
+//
 	return TRUE
 
 /// Builds / updates all buttons we have shared or given out

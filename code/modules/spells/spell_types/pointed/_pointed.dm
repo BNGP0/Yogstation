@@ -19,6 +19,10 @@
 	/// Variable dictating if the spell will use turf based aim assist
 	var/aim_assist = TRUE
 
+// why wasn't it added on rework?
+	var/include_user = FALSE
+
+
 /datum/action/cooldown/spell/pointed/New(Target)
 	. = ..()
 	if(!active_msg)
@@ -82,7 +86,7 @@
 	return ..(caller, params, aim_assist_target || click_target)
 
 /datum/action/cooldown/spell/pointed/is_valid_target(atom/cast_on)
-	if(cast_on == owner)
+	if(cast_on == owner && !include_user)
 		to_chat(owner, span_warning("You cannot cast [src] on yourself!"))
 		return FALSE
 

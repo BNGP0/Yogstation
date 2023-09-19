@@ -54,7 +54,7 @@ SUBSYSTEM_DEF(job)
 	if(!all_jobs.len)
 		to_chat(world, span_boldannounce("Error setting up jobs, no job datums found"))
 		return 0
-	
+
 	var/list/new_occupations = list()
 	var/list/new_joinable_occupations = list()
 	var/list/new_joinable_departments = list()
@@ -493,7 +493,7 @@ SUBSYSTEM_DEF(job)
 	if(PopcapReached())
 		RejectPlayer(player)
 		return
-	
+
 	switch (jobless_role)
 		if (BEOVERFLOW)
 			var/allowed_to_be_a_loser = !is_banned_from(player.ckey, SSjob.overflow_role)
@@ -528,7 +528,7 @@ SUBSYSTEM_DEF(job)
 
 	living_mob.job = rank
 
-	//If we joined at roundstart we should be positioned at our workstation 
+	//If we joined at roundstart we should be positioned at our workstation
 	if(!joined_late)
 		var/spawning_handled = FALSE
 		var/obj/S = null
@@ -565,7 +565,7 @@ SUBSYSTEM_DEF(job)
 				newplayer.new_character = living_mob
 			else
 				M = living_mob
-			
+
 		SSpersistence.antag_rep_change[M.client.ckey] += job.GetAntagRep()
 
 		if(M.client.holder)
@@ -637,10 +637,10 @@ SUBSYSTEM_DEF(job)
 				if(choice == A)
 					bar_sanitize = TRUE
 					break
-		
+
 			if(!bar_sanitize)
 				choice = "Random"
-		
+
 		if(choice == "Random")
 			choice = pick(GLOB.potential_box_bars)
 
@@ -677,7 +677,7 @@ SUBSYSTEM_DEF(job)
 			break
 	if(isnull(template))
 		message_admins("UNABLE TO SPAWN BAR")
-	
+
 	for(var/obj/effect/landmark/stationroom/box/bar/B in GLOB.landmarks_list)
 		template.load(B.loc, centered = FALSE)
 		qdel(B)

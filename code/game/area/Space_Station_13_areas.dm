@@ -1241,7 +1241,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambience_index = AMBIENCE_DANGER
 	minimap_color = "#4f4e3a"
 	airlock_wires = /datum/wires/airlock/ai
- 
+
 /area/ai_monitored/secondarydatacore
 	name = "AI Secondary Datacore Monitoring"
 	icon_state =  "ai"

@@ -35,7 +35,7 @@
 		var/mob/living/carbon/human/H = C
 		if(!pref_load)			//Hah! They got forcefully purrbation'd. Force default felinid parts on them if they have no mutant parts in those areas!
 			if(H.dna.features["tail_human"] == "None")
-				H.dna.features["tail_human"] = "Cat"				
+				H.dna.features["tail_human"] = "Cat"
 			if(H.dna.features["ears"] == "None")
 				H.dna.features["ears"] = "Cat"
 		if(H.dna.features["ears"] == "Cat")
@@ -79,7 +79,7 @@
 		else
 			tail.Remove(H)
 		H.dna.update_uf_block(DNA_HUMAN_TAIL_BLOCK)
-	
+
 
 ///turn everyone into catgirls. Technically not girls specifically but you get the point.
 /proc/mass_purrbation()
@@ -129,7 +129,11 @@
 	if(!silent)
 		to_chat(H, "Something is nya~t right.")
 		playsound(get_turf(H), 'sound/effects/meow1.ogg', 50, 1, -1)
-
+// antagstation edit
+		playsound(get_turf(H), 'sound/effects/dodge.ogg', 50, 1, -1)
+		to_chat(H, "Purbation blocked.")
+	return
+// AS edit end
 	if(!ishumanbasic(H))
 		var/obj/item/organ/cattification = new /obj/item/organ/tail/cat()
 		var/old_part = H.getorganslot(ORGAN_SLOT_TAIL)
@@ -177,7 +181,7 @@
 	. = ..()
 	if((H.client && H.client.prefs.read_preference(/datum/preference/toggle/mood_tail_wagging)) && !is_wagging_tail() && H.mood_enabled)
 		var/datum/component/mood/mood = H.GetComponent(/datum/component/mood)
-		if(!istype(mood) || !(mood.shown_mood >= MOOD_LEVEL_HAPPY2)) 
+		if(!istype(mood) || !(mood.shown_mood >= MOOD_LEVEL_HAPPY2))
 			return
 		var/chance = 0
 		switch(mood.shown_mood)

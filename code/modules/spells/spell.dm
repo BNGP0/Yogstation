@@ -85,6 +85,9 @@
 	/// The amount of smoke to create on cast. This is a range, so a value of 5 will create enough smoke to cover everything within 5 steps.
 	var/smoke_amt = 0
 
+// Why was it removed / not added in the rework?
+	var/dead_cast = FALSE
+
 /datum/action/cooldown/spell/Grant(mob/grant_to)
 	// If our spell is mind-bound, we only wanna grant it to our mind
 	if(istype(target, /datum/mind))
@@ -366,10 +369,13 @@
 		return TRUE
 
 	// If you want a spell usable by ghosts for some reason, it must be INVOCATION_NONE
-	if(!isliving(owner))
+	if(!isliving(owner) && !dead_cast)
 		if(feedback)
 			to_chat(owner, span_warning("You need to be living to invoke [src]!"))
 		return FALSE
+
+	if(!isliving(owner) && dead_cast)
+		return TRUE //bypasses invocation checks
 
 	var/mob/living/living_owner = owner
 	if(invocation_type == INVOCATION_EMOTE && HAS_TRAIT(living_owner, TRAIT_EMOTEMUTE))
