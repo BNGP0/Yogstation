@@ -3,6 +3,7 @@
 	"map_link": "AntagTown",
 	"map_path": "map_files/AntagTown",
 	"map_file": "AntagTown.dmm",
+	"traits": [{"Up": 1}, {"Up": 1, "Down": -1}, {"Down": -1}],
 	"shuttles": {
 		"cargo": "cargo_box",
 		"ferry": "ferry_fancy",
